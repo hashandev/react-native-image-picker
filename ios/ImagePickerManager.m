@@ -149,6 +149,7 @@ RCT_EXPORT_METHOD(showImagePicker:(NSDictionary *)options callback:(RCTResponseS
         }
         else { // "back"
             self.picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+            self.picker.showsCameraControls = YES;
         }
 #endif
     }
@@ -164,6 +165,12 @@ RCT_EXPORT_METHOD(showImagePicker:(NSDictionary *)options callback:(RCTResponseS
         }
         else if ([[self.options objectForKey:@"videoQuality"] isEqualToString:@"low"]) {
             self.picker.videoQuality = UIImagePickerControllerQualityTypeLow;
+        }
+        else if ([[self.options objectForKey:@"videoQuality"] isEqualToString:@"iFrame1280x720"]) {
+            self.picker.videoQuality = UIImagePickerControllerQualityTypeIFrame1280x720;
+        }
+        else if ([[self.options objectForKey:@"videoQuality"] isEqualToString:@"iFrame960x540"]) {
+            self.picker.videoQuality = UIImagePickerControllerQualityTypeIFrame960x540;
         }
         else {
             self.picker.videoQuality = UIImagePickerControllerQualityTypeMedium;
